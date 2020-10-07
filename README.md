@@ -12,5 +12,5 @@ Run `bundle install` to install the dependencies.
 ### Play
 Run `ruby bulls_and_cows.rb`
 
-### Running tests
+### Tests 
 `ruby test/test_bulls_and_cows.rb`
