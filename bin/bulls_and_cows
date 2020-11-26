@@ -1,0 +1,8 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+require_relative '../lib/bulls_and_cows'
+
+game = BullsAndCows.new
+puts "WELCOME TO BULLS AND COWS! \n\n"
+game.start

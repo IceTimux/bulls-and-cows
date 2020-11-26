@@ -10,11 +10,11 @@ class BullsAndCows
     words = filter_words_by_length(@letters, filter_isogram_words(wordlist))
     answer = words.sample
 
-    until win do 
+    until win
       puts "#{word_as_stars(answer)}\n\n"
       print 'Guess word: '
       guess = gets.chomp
-      puts ""
+      puts ''
 
       if validate_guess(guess, answer) == false
         puts "Error: Incorrect number of characters.\n\n"
@@ -30,11 +30,12 @@ class BullsAndCows
           puts "WINNER!\n\n"
           print 'Continue? (y/n): '
           continue = gets.chomp
-          puts ""
+          puts ''
 
-          if continue == 'y'
-           start
-          elsif continue == 'n'
+          case continue
+          when 'y'
+            start
+          when 'n'
             exit
           end
         end
@@ -81,11 +82,11 @@ class BullsAndCows
   def bulls_and_cows(guess, answer)
     bulls_and_cows = []
     answer.chars.each_with_index do |char, index|
-      if guess.chars[index] == char
-        bulls_and_cows << 'bull'
-      else
-        bulls_and_cows << 'cow'
-      end  
+      bulls_and_cows << if guess.chars[index] == char
+                          'bull'
+                        else
+                          'cow'
+                        end
     end
     bulls_and_cows.join(', ')
   end
@@ -93,11 +94,11 @@ class BullsAndCows
   def word_as_stars(word)
     word_as_stars = []
     word.chars.each_with_index do |char, index|
-      if index == 0
-        word_as_stars << char 
-      else
-        word_as_stars << '*'
-      end
+      word_as_stars << if index.zero?
+                         char
+                       else
+                         '*'
+                       end
     end
     word_as_stars.join(' ')
   end

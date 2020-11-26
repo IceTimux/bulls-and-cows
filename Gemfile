@@ -2,5 +2,5 @@
 
 source 'https://rubygems.org' do
   gem 'minitest-reporters'
-  gem 'rubocop'
+  gem 'rake'
 end
