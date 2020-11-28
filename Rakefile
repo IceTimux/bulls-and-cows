@@ -1,7 +1,11 @@
 # frozen_string_literal: true
 
-task default: %w[test]
+require 'rake/testtask'
 
-task :test do
-  ruby 'test/test_bulls_and_cows.rb'
+Rake::TestTask.new(:test) do |t|
+  t.libs << 'test'
+  t.libs << 'lib'
+  t.test_files = FileList['test/**/test_*.rb']
 end
+
+task default: :test

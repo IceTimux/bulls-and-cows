@@ -5,6 +5,7 @@ class BullsAndCows
     @letters = 5
   end
 
+  # :nocov:
   def start
     win = false
     words = filter_words_by_length(@letters, filter_isogram_words(wordlist))
@@ -42,6 +43,7 @@ class BullsAndCows
       end
     end
   end
+  # :nocov:
 
   def wordlist
     File.open('data/wordlist.txt').readlines.map(&:chomp)
